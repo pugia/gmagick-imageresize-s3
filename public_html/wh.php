@@ -9,9 +9,9 @@ $height = (int)$_REQUEST['height'];
 $file = CDN_ORIGIN.$_REQUEST['path'];
 $next = CDN_CACHE.'wh/'.$width.'/'.$height.'/'.$_REQUEST['path'];
 
-if (false === file_get_contents($next,0,null,0,1)) {
+if (false === @file_get_contents($next,0,null,0,1)) {
 
-	if (false === file_get_contents($file,0,null,0,1)) {
+	if (false === @file_get_contents($file,0,null,0,1)) {
 	  echo 'error upload';
 	} else {
 

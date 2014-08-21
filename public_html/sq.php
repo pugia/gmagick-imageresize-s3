@@ -8,9 +8,9 @@ $size = (int)$_REQUEST['size'];
 $file = CDN_ORIGIN.$_REQUEST['path'];
 $next = CDN_CACHE.'sq/'.$size.'/'.$_REQUEST['path'];
 
-if (false === file_get_contents($next,0,null,0,1)) {
+if (false === @file_get_contents($next,0,null,0,1)) {
 
-	if (false === file_get_contents($file,0,null,0,1)) {
+	if (false === @file_get_contents($file,0,null,0,1)) {
 	  echo 'error upload';
 	} else {
 
