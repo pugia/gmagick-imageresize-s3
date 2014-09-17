@@ -8,6 +8,8 @@ $size = (int)$_REQUEST['size'];
 $file = CDN_ORIGIN.$_REQUEST['path'];
 $next = CDN_CACHE.'sq/'.$size.'/'.$_REQUEST['path'];
 
+if (strlen($_REQUEST['path']) < 41) { header("HTTP/1.0 404 Not Found"); exit(); }
+
 if (false === @file_get_contents($next,0,null,0,1)) {
 
 	if (false === @file_get_contents($file,0,null,0,1)) {
